@@ -1,11 +1,12 @@
 {
-  "name": "ecommerce-CMS-server",
+  "name": "ecommerce-cms-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "npx jest",
-    "dev": "npx nodemon bin/http.js"
+    "dev": "npx nodemon bin/http.js",
+    "dbase": "NODE_ENV=development && sequelize db:create && sequelize db:migrate"
   },
   "repository": {
     "type": "git",

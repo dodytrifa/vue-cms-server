@@ -1,4 +1,4 @@
-// const { Product } = require('../models/')
+const { User } = require('../models/')
 
 const authorize = function (req, res, next) {
   User.findOne({
@@ -7,7 +7,8 @@ const authorize = function (req, res, next) {
     }
   })
     .then(user => {
-      if (req.decoded.role === "admin") {
+      console.log(user.role);
+      if (user.role === "admin") {
         next()
       } else {
         res.status(401).json({ message: "You are not authorize" })

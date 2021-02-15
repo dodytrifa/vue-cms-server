@@ -4,6 +4,8 @@ if (env === 'development' || env === 'test') {
   require('dotenv').config()
 }
 
+// require('dotenv').config({ path: _dirname + '/.env' })
+
 module.exports = {
   "development": {
     "username": process.env.USERNAME_DEV,
@@ -13,11 +15,11 @@ module.exports = {
     "dialect": "postgres"
   },
   "test": {
-    "username": process.env.USERNAME_TEST,
-    "password": process.env.PASSWORD_TEST,
-    "database": process.env.DATABASE_TEST,
-    "host": process.env.HOST_TEST,
-    "dialect": process.env.DIALECT_TEST
+    "username": "postgres",
+    "password": "postdody",
+    "database": "ecom_test",
+    "host": "localhost",
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",

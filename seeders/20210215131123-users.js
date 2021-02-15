@@ -1,17 +1,24 @@
 'use strict';
-const { hash } = require('../helpers/bcrypt')
-let hashedPass = hash("123456")
+// const { hash } = require('../helpers/bcrypt')
+// let hashedPass = hash("123456")
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users',
+    return queryInterface.bulkInsert('Users', [
       {
-        email: "admin1@mail.com",
-        password: "123451",
+        email: "admin2@mail.com",
+        password: "123452",
         role: "admin",
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+      {
+        email: "user5@mail.com",
+        password: "passuser5",
+        role: "customer",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
-    )
+    ])
     /**
      * Add seed commands here.
      *
