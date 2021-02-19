@@ -12,6 +12,7 @@ const authorize = function (req, res, next) {
         next()
       } else {
         res.status(401).json({ message: "You are not authorize" })
+        // res.status(404).json({ message: "You are not authorize" })
         // next()
       }
     })

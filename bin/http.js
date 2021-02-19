@@ -5,7 +5,7 @@ const port = 3000
 
 // app.use(routes)
 
-
+console.log(process.env.NODE_ENV);
 app.listen(port, () => {
     console.log('run on port', port);
 })

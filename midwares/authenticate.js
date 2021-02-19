@@ -17,6 +17,9 @@ function authenticate(req, res, next) {
           return res.status(401).json({
             message: "You are not authenticate"
           })
+          // return res.status(401).json({
+          // message: "You are not authenticate"
+          // })
         } else {
           req.decoded = decoded
         }

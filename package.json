@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest",
-    "dev": "npx nodemon bin/http.js",
-    "dbase": "NODE_ENV=development && sequelize db:create && sequelize db:migrate"
+    "start": "node app.js",
+    "test": "SET NODE_ENV=test npx jest",
+    "dev": "nodemon bin/http.js",
+    "db:create:test": "SET NODE_ENV=test npx sequelize db:create",
+    "db:create:dev": "SET NODE_ENV=development npx sequelize db:create",
+    "db:migrate:test": "npx sequelize db:migrate --env test",
+    "db:migrate:dev": "npx sequelize db:migrate --env development",
+    "db:seed:dev": "npx sequelize db:seed:all --env development"
   },
   "repository": {
     "type": "git",
@@ -28,6 +33,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.5.1",

@@ -49,6 +49,21 @@ class ProductController {
       })
   }
 
+  static getProductId(req, res) {
+    const id = +req.params.id
+ 
+    Product.findOne({
+      where: { id }, returning: true
+    })
+      .then(data => {
+        res.status(200).json(data)
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err)
+      })
+  }
+
   static destroyProducts(req, res, next) {
     // res.send('ini delete')
     const id = +req.params.id

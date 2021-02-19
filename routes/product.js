@@ -9,6 +9,7 @@ router.get('/', ProductController.getProducts)
 
 // router.use('/:id', authorize)
 router.post('/', authorize, ProductController.addProducts)
+router.get('/:id', authorize, ProductController.getProductId)
 router.put('/:id', authorize, ProductController.editProducts)
 router.delete('/:id', authorize, ProductController.destroyProducts)
 
