@@ -42,26 +42,19 @@ module.exports = {
         stock: 20,
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+      {
+        name: "OnePlus 8",
+        image_url: "https://fdn.gsmarena.com/imgroot/news/20/04/oneplus-8-8-pro-full-specs/-727x600m/gsmarena_002.jpg",
+        price: 11000000,
+        stock: 20,
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }
     ])
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
   },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Products', null, {})
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
   }
 };
