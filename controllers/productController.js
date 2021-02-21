@@ -1,8 +1,7 @@
 const { Product } = require('../models/')
 
 class ProductController {
-  static getProducts(req, res) {
-    // res.send('ini get')
+  static getProducts(req, res, next) {
     Product.findAll()
       .then(data => {
         res.status(200).json(data)
@@ -13,8 +12,6 @@ class ProductController {
       })
   }
   static addProducts(req, res, next) {
-    // res.send('ini add')
-
     const { name, image_url, price, stock } = req.body
     Product.create({
       name, image_url, price, stock
@@ -24,14 +21,12 @@ class ProductController {
         res.status(201).json(data)
       })
       .catch(err => {
-        console.log(err);
-        res.status(500).json(err)
+        // res.status(500).json(err)
+        next(err)
       })
   }
 
   static editProducts(req, res, next) {
-    // res.send('ini edit')
-
     const id = +req.params.id
     const { name, image_url, price, stock } = req.body
     Product.update({
@@ -44,8 +39,8 @@ class ProductController {
       })
       .catch(err => {
         console.log(err);
-        // next(err)
-        res.status(500).json(err)
+        next(err)
+        // res.status(500).json(err)
       })
   }
 
@@ -59,13 +54,12 @@ class ProductController {
         res.status(200).json(data)
       })
       .catch(err => {
-        console.log(err);
+        // next(err)
         res.status(500).json(err)
       })
   }
 
   static destroyProducts(req, res, next) {
-    // res.send('ini delete')
     const id = +req.params.id
 
     Product.destroy({
@@ -75,7 +69,6 @@ class ProductController {
         res.status(200).json({ message: "Product Successfully deleted" })
       })
       .catch(err => {
-        console.log(err);
         res.status(500).json(err)
       })
   }

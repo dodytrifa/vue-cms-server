@@ -4,8 +4,6 @@ const { generateToken } = require('../helpers/jwt')
 
 class UserController {
   static register(req, res, next) {
-    // res.send('tes register')
-
     const { email, password } = req.body
     User.create({ email, password })
       .then(user => {
@@ -16,20 +14,17 @@ class UserController {
         })
       })
       .catch(err => {
-        res.status(500).json({ err })
-        // next(err)
+        // res.status(500).json({ err })
+        next(err)
       })
   }
 
   static login(req, res, next) {
-    // res.send('tes login')
     const { email, password } = req.body
-    // console.log(req.body);
     User.findOne({
       where: { email }
     })
       .then(user => {
-        // console.log(user);
         if (!user) throw { msg: 'Invalid email or password' }
         const comparedPassword = compare(password, user.password)
         if (!comparedPassword) throw { msg: 'Invalid email or password' }
@@ -41,10 +36,9 @@ class UserController {
         res.status(200).json({ access_token })
       })
       .catch(err => {
-        // console.log(err);
         const error = err.msg || 'internal server error'
-        res.status(500).json({ error })
-        // res.status(500).json({err})
+        // res.status(500).json({ error })
+        next(err)
       })
   }
 }
