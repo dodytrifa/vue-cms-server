@@ -4,10 +4,12 @@ const {
 } = require('sequelize');
 const { hash } = require('../helpers/bcrypt')
 module.exports = (sequelize, DataTypes) => {
+  
   class User extends Model {
     static associate(models) {
-      // define association here
+      User.belongsToMany(models.Product, { through: models.Cart, foreignKey: 'id' })
     }
+
   };
   User.init({
     email: {

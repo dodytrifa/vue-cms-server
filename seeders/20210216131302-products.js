@@ -44,8 +44,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        name: "OnePlus 8",
-        image_url: "https://fdn.gsmarena.com/imgroot/news/20/04/oneplus-8-8-pro-full-specs/-727x600m/gsmarena_002.jpg",
+        name: "Redmi Note 8 Pro",
+        image_url: "https://fdn.gsmarena.com/imgroot/news/19/08/redmi-note-8-pro-ofic/-727/gsmarena_003.jpg",
         price: 11000000,
         stock: 20,
         createdAt: new Date(),
