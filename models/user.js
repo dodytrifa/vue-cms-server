@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
         isEmail: {
           args: true,
           msg: 'invalid email format'
         }
       },
-      unique: true
     },
     password: {
       type: DataTypes.STRING,
